@@ -176,10 +176,10 @@ const SHOP_PRODUCTS: ShopItem[] = [
   },
   {
     id: "p6",
-    name: "Rose Bloom Mist",
-    category: "Care ✨",
-    price: 190,
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80",
+    name: "Peace Lily Bloom",
+    category: "Flowers 🌸",
+    price: 350,
+    image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -333,7 +333,6 @@ export default function PlantlyPinkCoralApp() {
         boxSizing: "border-box",
       }}
     >
-      {/* การ์ดแอปโทนสีชมพู-แดงพาสเทลน่ารักละมุน */}
       <div
         style={{
           width: "100%",
@@ -349,7 +348,6 @@ export default function PlantlyPinkCoralApp() {
           position: "relative",
         }}
       >
-        {/* แจ้งเตือนลอยด้านบน */}
         {toastMsg && (
           <div
             style={{
@@ -373,9 +371,6 @@ export default function PlantlyPinkCoralApp() {
         )}
 
         <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          {/* =========================================================
-              1. DASHBOARD
-          ========================================================= */}
           {activeScreen === "dashboard" && (
             <>
               <div>
@@ -457,7 +452,6 @@ export default function PlantlyPinkCoralApp() {
               </div>
 
               <div style={{ padding: "14px 18px 16px 18px" }}>
-                {/* กล่องทักทายชมพู-แดงพาสเทล */}
                 <div
                   style={{
                     background: "linear-gradient(135deg, #FFF0F3 0%, #FFEAE9 100%)",
@@ -494,7 +488,6 @@ export default function PlantlyPinkCoralApp() {
                   </span>
                 </div>
 
-                {/* หัวข้อ My Plant Corner + Add Plant */}
                 <div
                   style={{
                     display: "flex",
@@ -524,7 +517,6 @@ export default function PlantlyPinkCoralApp() {
                   </button>
                 </div>
 
-                {/* การ์ดต้นไม้และดอกไม้ 2x2 โทนชมพู-แดงพาสเทล */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                   {plants.slice(0, 4).map((plant, idx) => (
                     <div
@@ -576,7 +568,6 @@ export default function PlantlyPinkCoralApp() {
                   ))}
                 </div>
 
-                {/* Upcoming Tasks โทนชมพูพาสเทลและแดงคอรัลพาสเทล */}
                 <div style={{ marginTop: "16px" }}>
                   <div style={{ fontSize: "13px", fontWeight: 800, color: "#5E3540", marginBottom: "8px" }}>
                     Upcoming Tasks ♡
@@ -622,9 +613,6 @@ export default function PlantlyPinkCoralApp() {
             </>
           )}
 
-          {/* =========================================================
-              2. MY PLANTS
-          ========================================================= */}
           {activeScreen === "my-plants" && (
             <>
               <div
@@ -732,9 +720,6 @@ export default function PlantlyPinkCoralApp() {
             </>
           )}
 
-          {/* =========================================================
-              3. PLANT PROFILE
-          ========================================================= */}
           {activeScreen === "profile" && (
             <div style={{ padding: "16px 18px" }}>
               <button
@@ -856,9 +841,6 @@ export default function PlantlyPinkCoralApp() {
             </div>
           )}
 
-          {/* =========================================================
-              4. ADD NEW PLANT
-          ========================================================= */}
           {activeScreen === "add-plant" && (
             <div style={{ padding: "16px 18px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
@@ -973,9 +955,6 @@ export default function PlantlyPinkCoralApp() {
             </div>
           )}
 
-          {/* =========================================================
-              5. SHOP
-          ========================================================= */}
           {activeScreen === "shop" && (
             <>
               <div
@@ -1052,9 +1031,6 @@ export default function PlantlyPinkCoralApp() {
             </>
           )}
 
-          {/* =========================================================
-              6. CART
-          ========================================================= */}
           {activeScreen === "cart" && (
             <div style={{ padding: "16px 18px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
@@ -1158,9 +1134,6 @@ export default function PlantlyPinkCoralApp() {
             </div>
           )}
 
-          {/* =========================================================
-              7. TIPS
-          ========================================================= */}
           {activeScreen === "tips" && (
             <div style={{ padding: "16px 18px" }}>
               <h1 style={{ fontSize: "18px", fontWeight: 800, color: "#4A2630", margin: "0 0 12px 0" }}>💡 Care Tips ♡</h1>
@@ -1188,9 +1161,6 @@ export default function PlantlyPinkCoralApp() {
             </div>
           )}
 
-          {/* =========================================================
-              8. ACCOUNT / PROFILE & ORDERS
-          ========================================================= */}
           {activeScreen === "account" && (
             <div style={{ padding: "16px 18px" }}>
               <h1 style={{ fontSize: "18px", fontWeight: 800, color: "#4A2630", margin: "0 0 12px 0" }}>👤 Profile ♡</h1>
@@ -1251,7 +1221,6 @@ export default function PlantlyPinkCoralApp() {
           )}
         </div>
 
-        {/* แถบเมนูด้านล่างโทนชมพู-แดงพาสเทล */}
         <div
           style={{
             background: "linear-gradient(125deg, #FFC2D4 0%, #FBBAB8 100%)",
