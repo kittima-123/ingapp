@@ -26,7 +26,6 @@ interface ShopItem {
   category: string;
   price: number;
   image: string;
-  badge?: string;
 }
 
 interface CartItem {
@@ -88,23 +87,6 @@ const INITIAL_PLANTS: Plant[] = [
   },
   {
     id: "4",
-    slug: "pilea_peperomioides",
-    name: "Pilea",
-    scientificName: "Pilea Peperomioides",
-    location: "Living Room",
-    category: "Indoor",
-    status: "Healthy",
-    health: 95,
-    nextWater: "2 days",
-    nextMist: "5 hours",
-    light: "Bright Indirect",
-    waterFreq: "Weekly",
-    temp: "15-24°C",
-    soil: "Peat-based",
-    image: "https://images.unsplash.com/photo-1614594805320-e6a5549d7f95?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "5",
     slug: "peace_lily",
     name: "Peace Lily",
     scientificName: "Spathiphyllum",
@@ -121,21 +103,38 @@ const INITIAL_PLANTS: Plant[] = [
     image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?auto=format&fit=crop&w=600&q=80",
   },
   {
-    id: "6",
-    slug: "pink_anthurium",
-    name: "Pink Anthurium",
-    scientificName: "Anthurium Andraeanum",
+    id: "5",
+    slug: "hydrangea",
+    name: "Hydrangea",
+    scientificName: "Hydrangea Macrophylla",
     location: "Balcony",
     category: "Flowers",
     status: "Blooming 🌸",
     health: 93,
-    nextWater: "3 days",
-    nextMist: "8 hours",
+    nextWater: "1 day",
+    nextMist: "5 hours",
+    light: "Morning Sun",
+    waterFreq: "Every 2 Days",
+    temp: "16-24°C",
+    soil: "Moist Loamy Soil",
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: "6",
+    slug: "pilea_peperomioides",
+    name: "Pilea",
+    scientificName: "Pilea Peperomioides",
+    location: "Living Room",
+    category: "Indoor",
+    status: "Healthy",
+    health: 95,
+    nextWater: "2 days",
+    nextMist: "5 hours",
     light: "Bright Indirect",
     waterFreq: "Weekly",
-    temp: "20-28°C",
-    soil: "Aroid Chunky Mix",
-    image: "https://images.unsplash.com/photo-1615460549969-36fa19521a4f?auto=format&fit=crop&w=600&q=80",
+    temp: "15-24°C",
+    soil: "Peat-based",
+    image: "https://images.unsplash.com/photo-1614594805320-e6a5549d7f95?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -145,15 +144,13 @@ const SHOP_PRODUCTS: ShopItem[] = [
     name: "Pink Moth Orchid",
     category: "Flowers 🌸",
     price: 590,
-    badge: "🌸 Flower",
     image: "https://images.unsplash.com/photo-1566924962158-6e595e5b7391?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "p2",
-    name: "Peace Lily Bloom",
+    name: "Peace Lily",
     category: "Flowers 🌸",
     price: 350,
-    badge: "🌸 Flower",
     image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?auto=format&fit=crop&w=600&q=80",
   },
   {
@@ -161,7 +158,6 @@ const SHOP_PRODUCTS: ShopItem[] = [
     name: "Pastel Hydrangea",
     category: "Flowers 🌸",
     price: 650,
-    badge: "🌸 New",
     image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80",
   },
   {
@@ -169,7 +165,6 @@ const SHOP_PRODUCTS: ShopItem[] = [
     name: "Monstera Albo",
     category: "Indoor 🌿",
     price: 890,
-    badge: "🌿 Rare",
     image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=600&q=80",
   },
   {
@@ -213,7 +208,7 @@ export default function PlantlyApp() {
 
   const notify = (msg: string) => {
     setToastMsg(msg);
-    setTimeout(() => setToastMsg(null), 2400);
+    setTimeout(() => setToastMsg(null), 2200);
   };
 
   const openPlant = (plant: Plant) => {
@@ -238,8 +233,8 @@ export default function PlantlyApp() {
     setPlants(updatedList);
     notify(
       type === "water"
-        ? `💧 รดน้ำ ${selectedPlant.name} แล้ว (+3% Health)`
-        : `✨ พ่นหมอกให้ ${selectedPlant.name} แล้ว (+3% Health)`
+        ? `💧 รดน้ำ ${selectedPlant.name} แล้ว (+3%)`
+        : `✨ พ่นหมอกให้ ${selectedPlant.name} แล้ว (+3%)`
     );
   };
 
@@ -251,7 +246,7 @@ export default function PlantlyApp() {
       }
       return [...prev, { item, quantity: 1 }];
     });
-    notify(`🛒 เพิ่ม "${item.name}" ลงตะกร้าแล้ว`);
+    notify(`🛒 เพิ่ม "${item.name}" แล้ว`);
   };
 
   const changeQty = (id: string, delta: number) => {
@@ -330,7 +325,6 @@ export default function PlantlyApp() {
         boxSizing: "border-box",
       }}
     >
-      {/* ตัวแอปแนวตั้งตรงกลางจอ ไม่มีกรอบโทรศัพท์สีดำ */}
       <div
         style={{
           width: "100%",
@@ -347,7 +341,6 @@ export default function PlantlyApp() {
           position: "relative",
         }}
       >
-        {/* แจ้งเตือนลอยด้านบน */}
         {toastMsg && (
           <div
             style={{
@@ -370,14 +363,9 @@ export default function PlantlyApp() {
           </div>
         )}
 
-        {/* ส่วนเนื้อหาหลัก */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          {/* =========================================================
-              1. หน้า DASHBOARD (คงรูปแบบตามภาพแนบ และทำให้สวยละมุนขึ้น)
-          ========================================================= */}
           {activeScreen === "dashboard" && (
             <>
-              {/* Header ชมพูพาสเทล */}
               <div
                 style={{
                   background: "linear-gradient(135deg, #FAD0DD 0%, #F7BED0 100%)",
@@ -453,7 +441,6 @@ export default function PlantlyApp() {
                   Good Morning, {customerName}! ☀️
                 </h1>
 
-                {/* หัวข้อ My Plant Corner + Add Plant */}
                 <div
                   style={{
                     display: "flex",
@@ -481,7 +468,6 @@ export default function PlantlyApp() {
                   </button>
                 </div>
 
-                {/* การ์ดต้นไม้ 2x2 เหมือนภาพแนบ ปรับความสวยและเงาให้ละมุนขึ้น */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                   {plants.slice(0, 4).map((plant) => (
                     <div
@@ -494,7 +480,6 @@ export default function PlantlyApp() {
                         border: "1px solid #f0e8df",
                         boxShadow: "0 6px 16px rgba(74, 63, 61, 0.05)",
                         cursor: "pointer",
-                        transition: "transform 0.15s ease",
                       }}
                     >
                       <img
@@ -526,7 +511,6 @@ export default function PlantlyApp() {
                   ))}
                 </div>
 
-                {/* Upcoming Tasks เหมือนภาพแนบ */}
                 <div style={{ marginTop: "18px" }}>
                   <div style={{ fontSize: "13px", fontWeight: 700, color: "#4a403d", marginBottom: "8px" }}>
                     Upcoming Tasks:
@@ -572,9 +556,6 @@ export default function PlantlyApp() {
             </>
           )}
 
-          {/* =========================================================
-              2. หน้า MY PLANTS (มีกรองต้นดอกไม้ & ต้นไม้ใบ)
-          ========================================================= */}
           {activeScreen === "my-plants" && (
             <>
               <div style={{ backgroundColor: "#E4CEF5", padding: "16px 18px" }}>
@@ -671,9 +652,6 @@ export default function PlantlyApp() {
             </>
           )}
 
-          {/* =========================================================
-              3. หน้า PLANT PROFILE (ดูรายละเอียด & กดรดน้ำ/พ่นหมอก)
-          ========================================================= */}
           {activeScreen === "profile" && (
             <div style={{ padding: "16px 18px" }}>
               <button
@@ -727,9 +705,6 @@ export default function PlantlyApp() {
             </div>
           )}
 
-          {/* =========================================================
-              4. หน้า ADD NEW PLANT (เพิ่มต้นดอกไม้และต้นไม้ใหม่)
-          ========================================================= */}
           {activeScreen === "add-plant" && (
             <div style={{ padding: "16px 18px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
@@ -842,9 +817,6 @@ export default function PlantlyApp() {
             </div>
           )}
 
-          {/* =========================================================
-              5. หน้า SHOP (สั่งซื้อต้นดอกไม้และต้นไม้ได้จริง)
-          ========================================================= */}
           {activeScreen === "shop" && (
             <>
               <div style={{ backgroundColor: "#D6EAD6", padding: "14px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -913,9 +885,6 @@ export default function PlantlyApp() {
             </>
           )}
 
-          {/* =========================================================
-              6. หน้า CART (ตะกร้าสินค้า & Checkout สั่งซื้อจริง)
-          ========================================================= */}
           {activeScreen === "cart" && (
             <div style={{ padding: "16px 18px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
@@ -1019,9 +988,6 @@ export default function PlantlyApp() {
             </div>
           )}
 
-          {/* =========================================================
-              7. หน้า TIPS
-          ========================================================= */}
           {activeScreen === "tips" && (
             <div style={{ padding: "16px 18px" }}>
               <h1 style={{ fontSize: "18px", fontWeight: 800, color: "#2d2624", margin: "0 0 12px 0" }}>💡 Care Tips</h1>
@@ -1040,9 +1006,6 @@ export default function PlantlyApp() {
             </div>
           )}
 
-          {/* =========================================================
-              8. หน้า ACCOUNT / PROFILE & ORDERS
-          ========================================================= */}
           {activeScreen === "account" && (
             <div style={{ padding: "16px 18px" }}>
               <h1 style={{ fontSize: "18px", fontWeight: 800, color: "#2d2624", margin: "0 0 12px 0" }}>👤 Profile</h1>
@@ -1079,9 +1042,6 @@ export default function PlantlyApp() {
           )}
         </div>
 
-        {/* =========================================================
-            แถบเมนูด้านล่าง 5 ปุ่ม เหมือนภาพแนบ (Home, My Plants, Shop, Tips, Profile)
-        ========================================================= */}
         <div
           style={{
             backgroundColor: "#FAD0DD",
