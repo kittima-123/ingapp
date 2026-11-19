@@ -70,12 +70,12 @@ const INITIAL_PLANTS: Plant[] = [
   },
   {
     id: "3",
-    slug: "anthurium_red",
-    name: "Coral Anthurium",
-    scientificName: "Anthurium Andraeanum",
+    slug: "peace_lily",
+    name: "Peace Lily",
+    scientificName: "Spathiphyllum",
     location: "Living Room",
     category: "Flowers",
-    status: "Blooming 🌺",
+    status: "Blooming 🌸",
     health: 93,
     nextWater: "2 days",
     nextMist: "4 hours",
@@ -83,7 +83,7 @@ const INITIAL_PLANTS: Plant[] = [
     waterFreq: "Twice a Week",
     temp: "18-25°C",
     soil: "Rich Moist Soil",
-    image: "https://images.unsplash.com/photo-1615460549969-36fa19521a4f?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "4",
@@ -148,17 +148,17 @@ const SHOP_PRODUCTS: ShopItem[] = [
   },
   {
     id: "p2",
-    name: "Coral Anthurium",
-    category: "Flowers 🌺",
-    price: 450,
-    image: "https://images.unsplash.com/photo-1615460549969-36fa19521a4f?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "p3",
     name: "Pastel Hydrangea",
     category: "Flowers 🌸",
     price: 650,
     image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: "p3",
+    name: "Peace Lily Bloom",
+    category: "Flowers 🌸",
+    price: 350,
+    image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: "p4",
@@ -176,10 +176,10 @@ const SHOP_PRODUCTS: ShopItem[] = [
   },
   {
     id: "p6",
-    name: "Peace Lily Bloom",
-    category: "Flowers 🌸",
-    price: 350,
-    image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?auto=format&fit=crop&w=600&q=80",
+    name: "Pilea Baby",
+    category: "Indoor ♡",
+    price: 290,
+    image: "https://images.unsplash.com/photo-1614594805320-e6a5549d7f95?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -909,7 +909,7 @@ export default function PlantlyPinkCoralApp() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px", marginBottom: "18px" }}>
                 {[
                   { name: "Pink Orchid", cat: "Flowers" as const, img: "https://images.unsplash.com/photo-1566924962158-6e595e5b7391?auto=format&fit=crop&w=300&q=80" },
-                  { name: "Anthurium", cat: "Flowers" as const, img: "https://images.unsplash.com/photo-1615460549969-36fa19521a4f?auto=format&fit=crop&w=300&q=80" },
+                  { name: "Peace Lily", cat: "Flowers" as const, img: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?auto=format&fit=crop&w=300&q=80" },
                   { name: "Monstera", cat: "Indoor" as const, img: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=300&q=80" },
                 ].map((pop) => (
                   <div
